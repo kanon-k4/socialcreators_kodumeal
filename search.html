@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>こずみーる</title>
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/example.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <a class="navbar-brand" href="./">
+            こずみーるLOGO
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+</header>
+
+<section class="section section-default">
+  <div class="container">
+    <h2>店舗検索</h2>
+      <div class="bs-component">
+        <form name="search" action="search.html" method="GET">
+          <fieldset>
+            <div class="form-group">
+              <label for="area">フリーワード・市町区村名を入力</label>
+              <input type="text" class="form-control" name="area" id="area" placeholder="フリーワードを入力">
+            </div>
+            <div class="form-group">
+              <label for="option">オプション</label>
+              <div class="form-check">
+                <label class="form-check-label"></label>
+                  <input type="checkbox" value="true" name="is_ok_baby" id="is_ok_baby">乳児OK
+                  <input type="checkbox" value="true" name="is_ok_infant" id="is_ok_infant">幼児OK
+                  <input type="checkbox" value="true" name="is_no_smoking" id="is_no_smoking">禁煙・分煙
+                  <input type="checkbox" value="true" name="is_ok_baby_car" id="is_ok_baby_car">ベビーカーOK
+                  <input type="checkbox" value="true" name="is_zashiki" id="is_zashiki">子上がり・座敷
+                  <input type="checkbox" value="true" name="is_private_room" id="is_private_room">個室
+                  <input type="checkbox" value="true" name="is_parking_area" id="is_parking_area">駐車場有り
+                  <input type="checkbox" value="true" name="is_luggage_storage" id="is_luggage_storage">荷物置き(席の近くに)
+                  <input type="checkbox" value="true" name="is_nap_space" id="is_nap_space">お昼寝スペース
+                  <input type="checkbox" value="true" name="is_baby_bed" id="is_baby_bed">ベビーベッド・おむつ交換台
+                  <input type="checkbox" value="true" name="is_kids_menu" id="is_kids_menu">お子様メニュー
+                  <input type="checkbox" value="true" name="is_kids_chair" id="is_kids_chair">お子様用椅子
+                  <input type="checkbox" value="true" name="is_kids_dish" id="is_kids_dish">お子様用食器
+                  <input type="checkbox" value="true" name="is_kids_toilet" id="is_kids_toilet">お子様用トイレ
+                  <input type="checkbox" value="true" name="is_kids_toy" id="is_kids_toy">お子様用本・おもちゃ
+                  <input type="checkbox" value="true" name="is_ok_baby_food" id="is_ok_baby_food">離乳食持ち込みOK
+                  <input type="checkbox" value="true" name="is_nursing_room" id="is_nursing_room">授乳室・スペース
+                  <input type="checkbox" value="true" name="is_kids_room" id="is_kids_room">キッズルーム・スペース・託児施設
+                  <input type="checkbox" value="true" name="is_allergen_label" id="is_allergen_label">アレルギー表示・対応食
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">検索</button>
+          </fieldset>
+        </form>
+      </div>
+  </div>
+</section>
+
+<section class="section section-default">
+  <div class="container">
+    <h2>検索結果</h2>
+      <div class="bs-component">
+        
+      </div>
+  </div>
+  <table cellpadding="0" cellspacing="0" border="0" class="tbl1">
+    <col width="15%" />
+    <col width="15%" />
+    <col width="70%" />
+    <tbody>
+    <tr>
+    <th></th>
+    <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <table cellpadding="0" cellspacing="0" border="0" class="tbl">
+    <col width="15%" />
+    <col width="15%" />
+    <col width="70%" />
+    <tbody>
+    <tr>
+    <th></th>
+    <td></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="small">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center copyright">
+        &copy; 2020 Social Creaters Team G.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/kodumeal.js"></script>
+
+<script type="text/javascript">
+  $('.bs-component [data-toggle="popover"]').popover();
+  $('.bs-component [data-toggle="tooltip"]').tooltip();
+</script>
+
+<script type="text/javascript">
+  const apiUrl = "https://72daaa11-a960-440a-bb1c-41e6070cc90b.mock.pstmn.io";
+
+  let requestUrl = apiUrl + "/restaurants?";
+  let arg = new Object;
+  let pair=location.search.substring(1).split('&');
+  for(let i=0;pair[i];i++) {
+      let kv = pair[i].split('=');
+      arg[kv[0]]=kv[1];
+
+      if(kv[0]!="area"){
+        document.getElementById(kv[0]).checked = true;
+      }else{
+        document.getElementById(kv[0]).value = kv[1];
+      }
+
+      requestUrl = requestUrl + pair[i] + "&";
+  }
+
+
+  let request = new XMLHttpRequest();
+
+  request.open('GET', requestUrl, true);
+  request.responseType = 'json';
+
+  request.onload = function () {
+    const data = this.response;
+    console.log(data);
+
+    //HTMLを初期化
+    $("table.tbl1 tbody").html("");
+
+    //HTMLを生成
+    for(var index in data){
+    $('<tr>'+
+    '<th>'+data[index].id+'</th>'+
+    '<td class="label"><span class="' +
+    data[index].name + '">' +
+    data[index].address +
+    '</span></td>'+
+    '<td><a href="' + data[index].id +
+    '" target="' + data[index].id +
+    '">' + data[index].id + '</a></td>'+
+    '</tr>').appendTo('table.tbl tbody');
+    }
+  };
+
+  request.send();
+
+
+
+
+  //JSONデータ
+var data2 = {"release": [
+{
+"day": "2013.07.30",
+"label": "company",
+"category": "企業情報",
+"content": "テキストテキストテキスト",
+"url": "http://www.yahoo.co.jp/",
+"target": "_blank"
+},
+
+{
+"day": "2013.07.30",
+"label": "products",
+"category": "商品情報",
+"content": "テキストテキストテキスト",
+"url": "http://www.google.co.jp/",
+"target": "_blank"
+},
+
+{
+"day": "2013.07.30",
+"label": "company",
+"category": "企業情報",
+"content": "テキストテキストテキスト",
+"url": "http://www.yahoo.co.jp/",
+"target": "_self"
+}
+]}
+
+//HTMLを初期化
+$("table.tbl tbody").html("");
+
+//HTMLを生成
+for(var index in data2.release){
+$('<tr>'+
+'<th>'+data2.release[index].day+'</th>'+
+'<td class="label"><span class="' +
+data2.release[index].label + '">' +
+data2.release[index].category +
+'</span></td>'+
+'<td><a href="' + data2.release[index].url +
+'" target="' + data2.release[index].target +
+'">' + data2.release[index].content + '</a></td>'+
+'</tr>').appendTo('table.tbl tbody');
+}
+
+</script>
+
+</body>
+</html>
