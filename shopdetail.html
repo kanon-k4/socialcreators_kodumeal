@@ -35,6 +35,14 @@
     </nav>
 </header>
 
+<div class="jumbotron shop">
+    <div class="col-xl-8 outline text-xl-left text-center">
+        <div class="display-3 copy">
+          <span class="d-inline-block" id=shopheader></span>
+        </div>
+    </div>
+</div>
+
 <section class="section section-default">
   <div class="container">
     <h2>店舗詳細</h2>
@@ -112,6 +120,10 @@
         }
         text += '</div>';
         $(target).append(text);
+
+        const targetheader = $('#shopheader');
+        let textheader = data.name;
+        $(targetheader).append(textheader);
 
         let MyLatLng = new google.maps.LatLng(data.lat, data.lng);
         let Options = {
