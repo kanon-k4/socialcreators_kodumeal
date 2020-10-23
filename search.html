@@ -96,19 +96,6 @@
     </tr>
     </tbody>
   </table>
-
-
-  <table cellpadding="0" cellspacing="0" border="0" class="tbl">
-    <col width="15%" />
-    <col width="15%" />
-    <col width="70%" />
-    <tbody>
-    <tr>
-    <th></th>
-    <td></td>
-    </tr>
-    </tbody>
-  </table>
 </section>
 
 <footer class="small">
@@ -174,61 +161,13 @@
     '<td><a href="' + data[index].id +
     '" target="' + data[index].id +
     '">' + data[index].id + '</a></td>'+
-    '</tr>').appendTo('table.tbl tbody');
+    '</tr>').appendTo('table.tbl1 tbody');
     }
   };
 
   request.send();
 
 
-
-
-  //JSONデータ
-var data2 = {"release": [
-{
-"day": "2013.07.30",
-"label": "company",
-"category": "企業情報",
-"content": "テキストテキストテキスト",
-"url": "http://www.yahoo.co.jp/",
-"target": "_blank"
-},
-
-{
-"day": "2013.07.30",
-"label": "products",
-"category": "商品情報",
-"content": "テキストテキストテキスト",
-"url": "http://www.google.co.jp/",
-"target": "_blank"
-},
-
-{
-"day": "2013.07.30",
-"label": "company",
-"category": "企業情報",
-"content": "テキストテキストテキスト",
-"url": "http://www.yahoo.co.jp/",
-"target": "_self"
-}
-]}
-
-//HTMLを初期化
-$("table.tbl tbody").html("");
-
-//HTMLを生成
-for(var index in data2.release){
-$('<tr>'+
-'<th>'+data2.release[index].day+'</th>'+
-'<td class="label"><span class="' +
-data2.release[index].label + '">' +
-data2.release[index].category +
-'</span></td>'+
-'<td><a href="' + data2.release[index].url +
-'" target="' + data2.release[index].target +
-'">' + data2.release[index].content + '</a></td>'+
-'</tr>').appendTo('table.tbl tbody');
-}
 
 </script>
 
