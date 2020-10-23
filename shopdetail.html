@@ -65,9 +65,9 @@
 </script>
 
 <script type="text/javascript">
-  const apiUrl = "https://72daaa11-a960-440a-bb1c-41e6070cc90b.mock.pstmn.io";
+  const apiUrl = "http://api.kodumeal.k0ui1.jp";
 
-  let requestUrl = apiUrl + "/restaurants?";
+  let requestUrl = apiUrl + "/restaurants";
   let arg = new Object;
   let pair=location.search.substring(1).split('&');
   console.log(pair);
@@ -76,10 +76,10 @@
       arg[kv[0]]=kv[1];
 
     if(kv[0]=="id"){
-        requestUrl = requestUrl + pair[i];
+        requestUrl = requestUrl + '/' + kv[1];
     }
   }
-
+  console.log(requestUrl);
   let request = new XMLHttpRequest();
 
   request.open('GET', requestUrl, true);
@@ -91,12 +91,12 @@
 
     const target = $('#shopdetail');
     let text = '<div class="shopdetail">';
-    text += '<div class="shopname">' + data[0].name + '</div>';
-    text += '<div class="shopaddress">住所: ' + data[0].address + '</div>';
+    text += '<div class="shopname">' + data.name + '</div>';
+    text += '<div class="shopaddress">住所: ' + data.address + '</div>';
     text += '<div class="shopmap">ここにマップが入る予定</div>';
-    text += '<div class="shoptime">営業時間: ' + data[0].open_time + '～' + data[0].close_time + '</div>';
-    if(data[0].from_kids_welcome_time != null){
-        text += '<div class="shopkidstime">お子さま歓迎時間: ' + data[0].from_kids_welcome_time + '～' + data[0].to_kids_welcome_time + '</div>';
+    text += '<div class="shoptime">営業時間: ' + data.open_time + '～' + data.close_time + '</div>';
+    if(data.from_kids_welcome_time != null){
+        text += '<div class="shopkidstime">お子さま歓迎時間: ' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</div>';
     }else{
         text += '<div class="shopkidstime">お子さま歓迎時間: 設定なし';
     }

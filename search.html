@@ -108,7 +108,7 @@
 </script>
 
 <script type="text/javascript">
-  const apiUrl = "https://72daaa11-a960-440a-bb1c-41e6070cc90b.mock.pstmn.io";
+  const apiUrl = "http://api.kodumeal.k0ui1.jp";
 
   let requestUrl = apiUrl + "/restaurants?";
   let arg = new Object;
@@ -140,7 +140,7 @@
 
     const target = $('#shoplist');
     for(let index in data){
-      let text = '<div class="shoplist"><div class="shopname"><a href="./shopdetail.html?id=' + data[index].id + '">' + data[index].name + '</a></div></div>';
+      let text = '<div class="shoplist"><div class="shopname"><a href="./shopdetail.html?id=' + data[index].ID + '">' + data[index].name + '</a></div></div>';
       $(target).append(text);
     }
   };
