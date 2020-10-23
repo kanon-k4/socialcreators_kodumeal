@@ -38,8 +38,8 @@
 <section class="section section-default">
   <div class="container">
     <h2>店舗詳細</h2>
-      <div class="bs-component" id="shoplist">
-        <!-- This space is shop list -->
+      <div class="bs-component" id="shopdetail">
+        <!-- This space is shop detail -->
       </div>
   </div>
 </section>
@@ -70,21 +70,15 @@
   let requestUrl = apiUrl + "/restaurants?";
   let arg = new Object;
   let pair=location.search.substring(1).split('&');
+  console.log(pair);
   for(let i=0;pair[i];i++) {
       let kv = pair[i].split('=');
       arg[kv[0]]=kv[1];
 
-      if(document.getElementById(kv[0]) != null){
-        if(kv[0]!="area"){
-            document.getElementById(kv[0]).checked = true;
-        }else{
-            document.getElementById(kv[0]).value = kv[1];
-        }
-      }
-
-      requestUrl = requestUrl + pair[i] + "&";
+    if(kv[0]=="id"){
+        requestUrl = requestUrl + pair[i];
+    }
   }
-
 
   let request = new XMLHttpRequest();
 
@@ -95,11 +89,19 @@
     const data = this.response;
     console.log(data);
 
-    const target = $('#shoplist');
-    for(let index in data){
-      let text = '<div class="shoplist"><div class="shopname"><a href="./shopdetail.html?id=' + data[index].id + '">' + data[index].name + '</a></div></div>';
-      $(target).append(text);
+    const target = $('#shopdetail');
+    let text = '<div class="shopdetail">';
+    text += '<div class="shopname">' + data[0].name + '</div>';
+    text += '<div class="shopaddress">住所: ' + data[0].address + '</div>';
+    text += '<div class="shopmap">ここにマップが入る予定</div>';
+    text += '<div class="shoptime">営業時間: ' + data[0].open_time + '～' + data[0].close_time + '</div>';
+    if(data[0].from_kids_welcome_time != null){
+        text += '<div class="shopkidstime">お子さま歓迎時間: ' + data[0].from_kids_welcome_time + '～' + data[0].to_kids_welcome_time + '</div>';
+    }else{
+        text += '<div class="shopkidstime">お子さま歓迎時間: 設定なし';
     }
+    text += '</div>';
+    $(target).append(text);
   };
 
   request.send();
