@@ -114,17 +114,23 @@
         $(target).append(text);
 
         let MyLatLng = new google.maps.LatLng(data.lat, data.lng);
-        var Options = {
+        let Options = {
             zoom: 17,      //地図の縮尺値
             center: MyLatLng,    //地図の中心座標
             mapTypeId: 'roadmap'   //地図の種類
         };
-        var map = new google.maps.Map(document.getElementById('shopmap'), Options);
-        var markerOptions = {
+        let map = new google.maps.Map(document.getElementById('shopmap'), Options);
+        let markerOptions = {
             map: map,
             position: MyLatLng,
         };
-        var marker = new google.maps.Marker(markerOptions);
+        let marker = new google.maps.Marker(markerOptions);
+        let infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+            content: '<div class="mapshopname">' + data.name + '</div>' // 吹き出しに表示する内容
+        }); 
+        marker.addListener('click', function() { // マーカーをクリックしたとき
+            infoWindow.open(map, marker); // 吹き出しの表示
+        });
     };
 
     request.send();
