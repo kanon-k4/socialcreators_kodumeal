@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>こずみーる</title>
+  <title>こづみーる</title>
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -41,6 +41,9 @@
       <div class="bs-component" id="shopdetail">
         <!-- This space is shop detail -->
       </div>
+      <div class="bs-component" id="shopcomment">
+        <!-- This space is shop comment -->
+      </div>
   </div>
 </section>
 
@@ -67,44 +70,72 @@
 <script type="text/javascript">
   const apiUrl = "https://api.kodumeal.k0ui1.jp";
 
-  let requestUrl = apiUrl + "/restaurants";
   let arg = new Object;
   let pair=location.search.substring(1).split('&');
+  let shopid;
   console.log(pair);
   for(let i=0;pair[i];i++) {
       let kv = pair[i].split('=');
       arg[kv[0]]=kv[1];
 
     if(kv[0]=="shopid"){
-        requestUrl = requestUrl + '/' + kv[1];
+        shopid = kv[1];
     }
   }
-  console.log(requestUrl);
-  let request = new XMLHttpRequest();
 
-  request.open('GET', requestUrl, true);
-  request.responseType = 'json';
+  function getShopDetail(){
+    let requestUrl = apiUrl + "/restaurants/" + shopid;
+    console.log(requestUrl);
+    let request = new XMLHttpRequest();
 
-  request.onload = function () {
-    const data = this.response;
-    console.log(data);
+    request.open('GET', requestUrl, true);
+    request.responseType = 'json';
 
-    const target = $('#shopdetail');
-    let text = '<div class="shopdetail">';
-    text += '<div class="shopname">' + data.name + '</div>';
-    text += '<div class="shopaddress">住所: ' + data.address + '</div>';
-    text += '<div class="shopmap">ここにマップが入る予定</div>';
-    text += '<div class="shoptime">営業時間: ' + data.open_time + '～' + data.close_time + '</div>';
-    if(data.from_kids_welcome_time != null){
-        text += '<div class="shopkidstime">お子さま歓迎時間: ' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</div>';
-    }else{
-        text += '<div class="shopkidstime">お子さま歓迎時間: 設定なし';
-    }
-    text += '</div>';
-    $(target).append(text);
-  };
+    request.onload = function () {
+        const data = this.response;
+        console.log(data);
 
-  request.send();
+        const target = $('#shopdetail');
+        let text = '<div class="shopdetail">';
+        text += '<div class="shopname">' + data.name + '</div>';
+        text += '<div class="shopaddress">住所: ' + data.address + '</div>';
+        text += '<div class="shopmap">ここにマップが入る予定</div>';
+        text += '<div class="shoptime">営業時間: ' + data.open_time + '～' + data.close_time + '</div>';
+        if(data.from_kids_welcome_time != null){
+            text += '<div class="shopkidstime">お子さま歓迎時間: ' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</div>';
+        }else{
+            text += '<div class="shopkidstime">お子さま歓迎時間: 設定なし';
+        }
+        text += '</div>';
+        $(target).append(text);
+    };
+
+    request.send();
+ }
+
+ function getShopComment(){
+    let requestUrl = apiUrl + "/comments?restaurant_id=" + shopid;
+    console.log(requestUrl);
+    let request = new XMLHttpRequest();
+
+    request.open('GET', requestUrl, true);
+    request.responseType = 'json';
+
+    request.onload = function () {
+        const data = this.response;
+        console.log(data);
+
+        const target = $('#shopcomment');
+        let text = '<div class="shopdetail">';
+        text += '</div>';
+        $(target).append(text);
+    };
+
+    request.send();
+ }
+
+ getShopDetail();
+ getShopComment();
 </script>
 
 </body>
