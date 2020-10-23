@@ -140,7 +140,7 @@
 
     const target = $('#shoplist');
     for(let index in data){
-      let text = '<div class="shoplist"><div class="shopname"><a href="./shopdetail.html?id=' + data[index].ID + '">' + data[index].name + '</a></div></div>';
+      let text = '<div class="shoplist"><div class="shopname"><a href="./shopdetail.html?shopid=' + data[index].ID + '">' + data[index].name + '</a></div></div>';
       $(target).append(text);
     }
   };
