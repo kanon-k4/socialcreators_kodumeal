@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
         <a class="navbar-brand" href="./">
-            こずみーるLOGO
+            こづみーるLOGO
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,11 @@
       <div class="bs-component" id="shopdetail">
         <!-- This space is shop detail -->
       </div>
+
+      <div class="bs-component" id="shopmap"></div>
+
       <div class="bs-component" id="shopcomment">
+        <div class="shopname">利用ユーザのコメント</div>
         <!-- This space is shop comment -->
       </div>
   </div>
@@ -61,6 +65,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/kodumeal.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
 <script type="text/javascript">
   $('.bs-component [data-toggle="popover"]').popover();
@@ -99,7 +104,6 @@
         let text = '<div class="shopdetail">';
         text += '<div class="shopname">' + data.name + '</div>';
         text += '<div class="shopaddress">住所: ' + data.address + '</div>';
-        text += '<div class="shopmap">ここにマップが入る予定</div>';
         text += '<div class="shoptime">営業時間: ' + data.open_time + '～' + data.close_time + '</div>';
         if(data.from_kids_welcome_time != null){
             text += '<div class="shopkidstime">お子さま歓迎時間: ' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</div>';
@@ -108,6 +112,19 @@
         }
         text += '</div>';
         $(target).append(text);
+
+        let MyLatLng = new google.maps.LatLng(data.lat, data.lng);
+        var Options = {
+            zoom: 17,      //地図の縮尺値
+            center: MyLatLng,    //地図の中心座標
+            mapTypeId: 'roadmap'   //地図の種類
+        };
+        var map = new google.maps.Map(document.getElementById('shopmap'), Options);
+        var markerOptions = {
+            map: map,
+            position: MyLatLng,
+        };
+        var marker = new google.maps.Marker(markerOptions);
     };
 
     request.send();
@@ -126,9 +143,13 @@
         console.log(data);
 
         const target = $('#shopcomment');
-        let text = '<div class="shopdetail">';
-        text += '</div>';
-        $(target).append(text);
+
+        for(let index in data){
+            let text = '<div class="shopcomment">';
+            text += data[index].text;
+            text += '</div>';
+            $(target).append(text);
+        }
     };
 
     request.send();

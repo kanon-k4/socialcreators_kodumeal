@@ -48,3 +48,8 @@ IMG.displayed {
 .shopname a{
   color: #ffffff;
 }
+
+#shopmap{
+  width: 100%;
+  height: 500px;
+}
