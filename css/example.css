@@ -853,7 +853,6 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   overflow: hidden;
   background-color: #ffd699;
-  background-image: url("../img/circle.png");
   background-repeat: no-repeat;
   background-position: -35% center;
   background-size: 70%;
@@ -865,7 +864,7 @@ input[type="button"].btn-block {
   left: 0;
   width: 400px;
   height: 530px;
-  background-image: url("../img/honoka.png");
+  background-image: url("../img/logo.png");
   background-repeat: no-repeat;
 }
 
