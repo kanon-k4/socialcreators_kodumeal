@@ -113,12 +113,12 @@
         const target = $('#shopdetail');
         let text = '<div class="shopdetail">';
         text += '<div class="shopname">' + data.name + '</div>';
-        text += '<div class="shopaddress">住所: ' + data.address + '</div>';
-        text += '<div class="shoptime">営業時間: ' + data.open_time + '～' + data.close_time + '</div>';
+        text += '<div class="masonry-grid"><article class="shopdata"><p class="title">住所</p><p class="subtitle">' + data.address + '</p></article></div>';
+        text += '<div class="masonry-grid"><article class="shopdata"><p class="title">営業時間</p><p class="subtitle">' + data.open_time + '～' + data.close_time + '</p></article></div>';
         if(data.from_kids_welcome_time != null){
-            text += '<div class="shopkidstime">お子さま歓迎時間: ' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</div>';
+            text += '<div class="masonry-grid"><article class="shopdata"><p class="title">お子さま歓迎時間</p><p class="subtitle">' + data.from_kids_welcome_time + '～' + data.to_kids_welcome_time + '</p></article></div>';
         }else{
-            text += '<div class="shopkidstime">お子さま歓迎時間: 設定なし';
+            text += '<div class="masonry-grid"><article class="shopdata"><p class="title">お子さま歓迎時間</p><p class="subtitle">設定なし</p></article></div>';
         }
         text += '</div>';
         $(target).append(text);
