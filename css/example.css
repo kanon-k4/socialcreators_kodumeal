@@ -852,7 +852,7 @@ input[type="button"].btn-block {
   min-height: 530px;
   margin-bottom: 0;
   overflow: hidden;
-  background-color: #ffd699;
+  background-color: #ff7f7f;
   background-repeat: no-repeat;
   background-position: -35% center;
   background-size: 70%;
@@ -873,6 +873,7 @@ input[type="button"].btn-block {
 }
 
 .jumbotron.special .copy {
+  color: #ffffff;
   font-weight: 600;
 }
 
