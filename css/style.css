@@ -60,13 +60,14 @@ IMG.displayed {
   margin-bottom: 0;
   overflow: hidden;
   background-color: #ffffff;
-  background-image: url("../img/noimage.gif");
+  background-image: url("https://k0ui1.jp/wdpr/wp-content/uploads/2019/07/cup-of-coffee-1280537_1920.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
 }
 
 .jumbotron.shop .copy {
+  color: #ffffff;
   font-size: 2.5rem;
   font-weight: 600;
 }
